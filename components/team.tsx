@@ -6,9 +6,9 @@ import { Github, Linkedin, Twitter } from "lucide-react"
 const team = [
     {
         name: "Ibrahim Dayyan",
-        role: "Co-Founder & Lead Developer",
+        role: "Founder & Director",
         image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop",
-        bio: "Full-stack expert with a passion for building scalable digital solutions and high-performance web applications.",
+        bio: "This is a very long sample text.",
         social: {
             twitter: "#",
             linkedin: "#",
@@ -17,9 +17,9 @@ const team = [
     },
     {
         name: "Shaidozzaman Araf",
-        role: "Co-Founder & Creative Director",
+        role: "Developer",
         image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1974&auto=format&fit=crop",
-        bio: "Visionary designer focused on creating immersive user experiences and premium brand identities.",
+        bio: "Sample text.",
         social: {
             twitter: "#",
             linkedin: "#",

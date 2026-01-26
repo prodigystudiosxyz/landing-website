@@ -31,30 +31,29 @@ export function Hero() {
 
         {/* Main Headline */}
         <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.95] tracking-tight mb-8 max-w-5xl">
-          Your generic website is{" "}
-          <span className="gradient-text">costing you deals.</span>
+          Need a website in{" "}
+          <span className="gradient-text">under 2 weeks?</span>
         </h1>
 
         {/* Sub-headline */}
         <p className="text-xl sm:text-2xl text-muted-foreground max-w-2xl mb-12 leading-relaxed">
-          We help ambitious companies replace underperforming websites with
-          <span className="text-foreground font-medium"> conversion machines </span>
-          that generate qualified leads and drive real growth.
+          A fast, transparent website build for teams who already know who they are.
+          We build websites quickly, and without any unpleasant surprises.
         </p>
 
         {/* Value propositions */}
         <div className="flex flex-wrap gap-6 mb-12 text-muted-foreground">
           <div className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 bg-accent rounded-full" />
-            <span>Position above competition</span>
+            <span>No vague timelines</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 bg-accent rounded-full" />
-            <span>Generate qualified leads</span>
+            <span>No mystery pricing</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 bg-accent rounded-full" />
-            <span>Convert visitors to customers</span>
+            <span>No bloated "discovery" phases</span>
           </div>
         </div>
 
@@ -67,19 +66,19 @@ export function Hero() {
             }}
             className="bg-accent text-accent-foreground hover:bg-accent/90 rounded-full px-8 py-6 text-base font-semibold inline-flex items-center gap-2 group"
           >
-            Book a Free Call
+            Book a kickoff call
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </Button>
           <Button
             variant="outline"
             className="border-border hover:bg-secondary bg-transparent rounded-full px-8 py-6 text-base font-semibold inline-flex items-center gap-2"
             onClick={() => {
-              const element = document.getElementById("projects")
+              const element = document.getElementById("pricing")
               element?.scrollIntoView({ behavior: "smooth" })
             }}
           >
             <Play size={18} className="text-accent" />
-            See Our Work
+            See pricing
           </Button>
         </div>
 

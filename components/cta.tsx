@@ -27,12 +27,11 @@ export function CTA() {
           {/* Left - Text Content */}
           <div>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6">
-              Let's Build Something{" "}
-              <span className="gradient-text">Amazing</span>
+              Ready to <span className="gradient-text">launch?</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
-              Ready to transform your digital presence? Let's hop on a call and see if we're a good fit.
-              No pressure, no obligation — just a conversation about your goals.
+              If you need a professional website live in under two weeks, let’s get started.
+              Book a kickoff call or start your build today.
             </p>
 
             <div className="space-y-6 mb-10">
@@ -113,7 +112,7 @@ export function CTA() {
                 type="submit"
                 className="w-full bg-accent text-accent-foreground hover:bg-accent/90 rounded-full py-6 text-base font-semibold inline-flex items-center justify-center gap-2 group"
               >
-                Send Message
+                Book a kickoff call
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </Button>
             </form>

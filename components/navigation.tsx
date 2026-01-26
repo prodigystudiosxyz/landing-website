@@ -38,10 +38,16 @@ export function Navigation() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-10">
             <a
-              href="#services"
+              href="#process"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
-              Services
+              Process
+            </a>
+            <a
+              href="#pricing"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Pricing
             </a>
             <a
               href="#projects"
@@ -50,16 +56,10 @@ export function Navigation() {
               Projects
             </a>
             <a
-              href="#team"
+              href="#faq"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
-              Team
-            </a>
-            <a
-              href="#testimonials"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Testimonials
+              FAQ
             </a>
             <Button
               onClick={() => {
@@ -88,11 +88,18 @@ export function Navigation() {
         >
           <div className="flex flex-col gap-4 pt-4">
             <a
-              href="#services"
+              href="#process"
               className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
               onClick={() => setIsOpen(false)}
             >
-              Services
+              Process
+            </a>
+            <a
+              href="#pricing"
+              className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              Pricing
             </a>
             <a
               href="#projects"
@@ -102,18 +109,11 @@ export function Navigation() {
               Projects
             </a>
             <a
-              href="#team"
+              href="#faq"
               className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
               onClick={() => setIsOpen(false)}
             >
-              Team
-            </a>
-            <a
-              href="#testimonials"
-              className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              Testimonials
+              FAQ
             </a>
             <Button
               onClick={() => {

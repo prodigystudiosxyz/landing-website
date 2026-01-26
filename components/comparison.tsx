@@ -3,18 +3,18 @@
 import { Button } from "@/components/ui/button"
 import { Check, X, ArrowRight } from "lucide-react"
 
-const typicalAgency = [
-    "Offer every service but aren't experts at building high-performing solutions",
-    "Write generic copy that looks pretty but doesn't convert visitors",
-    "Focus on landing new clients instead of driving results for existing ones",
-    "Deliver one-size-fits-all templates without strategic thinking",
+const whatWeDontDo = [
+    "We don’t do your brand (no logo design, no strategy)",
+    "No naming workshops or creative brainstorming",
+    "No unlimited revisions that slow projects down",
+    "No mystery pricing or hourly billing surprises",
 ]
 
-const prodigyStudios = [
-    "Specialize in strategic, conversion-focused solutions for ambitious companies",
-    "Craft clear messaging that simplifies complex products and sells value",
-    "Treat your growth like our own - every project is built to perform",
-    "Custom solutions tailored to your unique business challenges",
+const whatWeDoWell = [
+    "Clean, modern, high-performance website design",
+    "Fast, responsive builds that work on all devices",
+    "Clear messaging hierarchy that converts visitors",
+    "SEO-ready foundations and easy-to-manage CMS",
 ]
 
 export function Comparison() {
@@ -24,10 +24,10 @@ export function Comparison() {
                 {/* Section Header */}
                 <div className="text-center mb-16">
                     <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6">
-                        Not Your Typical Agency
+                        What we don’t do <span className="text-muted-foreground/60">(on purpose)</span>
                     </h2>
                     <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        We're not interested in being another vendor. We're interested in being your growth partner.
+                        Branding slows projects down. We assume you already know who you are. We just make you look good online.
                     </p>
                 </div>
 
@@ -37,10 +37,10 @@ export function Comparison() {
                     <div className="bg-background border border-border rounded-3xl p-8 lg:p-10">
                         <div className="inline-flex items-center gap-2 bg-muted/50 rounded-full px-4 py-2 mb-8">
                             <X size={16} className="text-muted-foreground" />
-                            <span className="text-sm font-medium text-muted-foreground">Typical Agency</span>
+                            <span className="text-sm font-medium text-muted-foreground">What we don't do</span>
                         </div>
                         <ul className="space-y-6">
-                            {typicalAgency.map((item, index) => (
+                            {whatWeDontDo.map((item, index) => (
                                 <li key={index} className="flex items-start gap-4">
                                     <div className="w-6 h-6 bg-muted rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                                         <X size={14} className="text-muted-foreground" />
@@ -49,14 +49,6 @@ export function Comparison() {
                                 </li>
                             ))}
                         </ul>
-                        <div className="mt-10">
-                            <Button
-                                variant="outline"
-                                className="border-border text-muted-foreground hover:bg-muted rounded-full px-6 py-3 font-medium"
-                            >
-                                Work with them
-                            </Button>
-                        </div>
                     </div>
 
                     {/* Prodigy Studios */}
@@ -67,10 +59,10 @@ export function Comparison() {
                         <div className="relative z-10">
                             <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-2 mb-8">
                                 <Check size={16} className="text-accent" />
-                                <span className="text-sm font-medium text-accent">Prodigy Studios</span>
+                                <span className="text-sm font-medium text-accent">What we do exceptionally well</span>
                             </div>
                             <ul className="space-y-6">
-                                {prodigyStudios.map((item, index) => (
+                                {whatWeDoWell.map((item, index) => (
                                     <li key={index} className="flex items-start gap-4">
                                         <div className="w-6 h-6 bg-accent/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                                             <Check size={14} className="text-accent" />
@@ -87,7 +79,7 @@ export function Comparison() {
                                     }}
                                     className="bg-accent text-accent-foreground hover:bg-accent/90 rounded-full px-6 py-3 font-medium inline-flex items-center gap-2 group"
                                 >
-                                    Work with us
+                                    Book a kickoff call
                                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                                 </Button>
                             </div>
