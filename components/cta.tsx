@@ -1,123 +1,59 @@
 "use client"
 
-import type React from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { useState } from "react"
-import { ArrowRight, Calendar, Mail, MessageSquare } from "lucide-react"
+import { AnimateIn } from "@/components/animate-in"
 
 export function CTA() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  })
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log("Form submitted:", formData)
-    setFormData({ name: "", email: "", message: "" })
-  }
-
   return (
-    <section id="contact" className="py-24">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left - Text Content */}
-          <div>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6">
-              Ready to <span className="gradient-text">launch?</span>
+    <section id="contact" className="py-24 lg:py-32 relative overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-accent/10 rounded-full blur-[150px] pointer-events-none" />
+
+      <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
+        {/* Heading */}
+        <div>
+          <AnimateIn>
+            <h2 className="font-[var(--font-heading)] text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] mb-6">
+              Ready to build something <br />
+              <span className="gradient-text">extraordinary?</span>
             </h2>
-            <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
-              If you need a professional website live in under two weeks, let’s get started.
-              Book a kickoff call or start your build today.
+          </AnimateIn>
+          <AnimateIn delay={0.2}>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
+              Let's translate your vision into a scalable, high-performance platform. Just tell us what you're working on, and we will figure out the rest.
             </p>
-
-            <div className="space-y-6 mb-10">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
-                  <Calendar className="text-accent" size={24} />
-                </div>
-                <div>
-                  <p className="font-semibold">Free 30-Minute Strategy Call</p>
-                  <p className="text-sm text-muted-foreground">No commitment required</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
-                  <MessageSquare className="text-accent" size={24} />
-                </div>
-                <div>
-                  <p className="font-semibold">Custom Solutions</p>
-                  <p className="text-sm text-muted-foreground">Tailored to your unique needs</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
-                  <Mail className="text-accent" size={24} />
-                </div>
-                <div>
-                  <p className="font-semibold">Quick Response</p>
-                  <p className="text-sm text-muted-foreground">We reply within 24 hours</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right - Contact Form */}
-          <div className="bg-card border border-border rounded-3xl p-8 lg:p-10">
-            <h3 className="text-2xl font-bold mb-2">Send us a message</h3>
-            <p className="text-muted-foreground mb-8">
-              Or email us directly at{" "}
-              <a href="mailto:hello@prodigystudios.io" className="text-accent hover:underline">
-                hello@prodigystudios.io
-              </a>
-            </p>
-
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium mb-2">Name</label>
-                <Input
-                  type="text"
-                  placeholder="John Smith"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="bg-background border-border rounded-xl h-12 px-4"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-2">Email</label>
-                <Input
-                  type="email"
-                  placeholder="john@company.com"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="bg-background border-border rounded-xl h-12 px-4"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-2">Message</label>
-                <Textarea
-                  placeholder="Tell us about your project..."
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="bg-background border-border rounded-xl min-h-32 px-4 py-3 resize-none"
-                  required
-                />
-              </div>
-              <Button
-                type="submit"
-                className="w-full bg-accent text-accent-foreground hover:bg-accent/90 rounded-full py-6 text-base font-semibold inline-flex items-center justify-center gap-2 group"
-              >
-                Book a kickoff call
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </form>
-          </div>
+          </AnimateIn>
         </div>
+
+        {/* Action Button */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <AnimateIn delay={0.4} direction="none">
+            <a
+              href="mailto:hello@prodigystudios.io"
+              className="inline-flex items-center gap-3 bg-foreground text-background rounded-md px-8 py-5 text-lg font-medium hover:bg-foreground/90 transition-all duration-300 group shadow-xl hover:shadow-2xl hover:-translate-y-0.5"
+            >
+              Start a conversation
+              <svg
+                className="w-5 h-5 text-accent group-hover:translate-x-1 transition-transform duration-300"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </AnimateIn>
+        </div>
+
+        {/* Reassurance */}
+        <AnimateIn delay={0.6}>
+          <div className="mt-8">
+            <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
+              We reply within 24 hours. No sales pitch, just strategy.
+            </p>
+          </div>
+        </AnimateIn>
       </div>
     </section>
   )

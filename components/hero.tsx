@@ -1,113 +1,64 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Play } from "lucide-react"
+import { ArrowRight } from "lucide-react"
+import { InteractiveDemo } from "@/components/interactive-demo"
+import { ParticleNetwork } from "@/components/particle-network"
+import { AnimateIn } from "@/components/animate-in"
+import { motion } from "framer-motion"
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-secondary/30 pointer-events-none" />
+    <section className="relative w-full pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden flex flex-col justify-center min-h-[90vh]">
+      {/* Background Section */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-background">
+        {/* Animated dynamic gradients */}
+        <div className="absolute top-[10%] left-[20%] w-[500px] h-[500px] bg-accent/10 rounded-md blur-[120px] animate-[float_10s_ease-in-out_infinite]" />
+        <div
+          className="absolute bottom-[10%] right-[10%] w-[600px] h-[600px] bg-indigo-500/10 rounded-md blur-[120px] animate-[float_12s_ease-in-out_infinite_reverse]"
+          style={{ animationDelay: "-4s" }}
+        />
 
-      {/* Scrolling Marquee */}
-      <div className="absolute top-28 left-0 right-0 overflow-hidden py-4 opacity-20 select-none pointer-events-none -rotate-1 scale-105">
-        <div className="flex animate-marquee whitespace-nowrap">
-          <span className="text-[8rem] font-black tracking-tighter mx-8 text-primary">
-            SOFTWARE • DESIGN • AI • INNOVATION • SOFTWARE • DESIGN • AI • INNOVATION •
-          </span>
-          <span className="text-[8rem] font-black tracking-tighter mx-8 text-primary">
-            SOFTWARE • DESIGN • AI • INNOVATION • SOFTWARE • DESIGN • AI • INNOVATION •
-          </span>
-        </div>
+        {/* Neural Network / Particle Graph */}
+        <ParticleNetwork />
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-20">
-        {/* Tagline */}
-        <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-2 mb-8">
-          <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-          <span className="text-sm font-medium text-accent">Award-Winning Digital Studio</span>
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-12 items-center">
+        {/* Left Column - Text Content */}
+        <div className="flex flex-col items-start text-left">
+          <AnimateIn direction="up" delay={0.2} distance={40}>
+            <h1 className="font-[var(--font-heading)] text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-[1.05] tracking-tight mb-6">
+              Software built for
+              <br />
+              <span className="gradient-text">the work that matters.</span>
+            </h1>
+          </AnimateIn>
+
+          <AnimateIn direction="up" delay={0.4} distance={30}>
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-xl mb-10 leading-relaxed">
+              We help charities, NGOs, and mission-driven organizations scale their impact through reliable technology. From donation platforms to volunteer management systems, we handle the tech so you can focus on your cause.
+            </p>
+          </AnimateIn>
+
+          <AnimateIn direction="up" delay={0.6} distance={20}>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-3 bg-foreground text-background rounded-md px-8 py-4 text-base font-medium hover:bg-foreground/90 transition-all duration-300 group shadow-lg shadow-black/5 hover:shadow-xl hover:-translate-y-0.5"
+            >
+              Start a conversation
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+            </a>
+          </AnimateIn>
         </div>
 
-        {/* Main Headline */}
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.95] tracking-tight mb-8 max-w-5xl">
-          Need a website in{" "}
-          <span className="gradient-text">under 2 weeks?</span>
-        </h1>
-
-        {/* Sub-headline */}
-        <p className="text-xl sm:text-2xl text-muted-foreground max-w-2xl mb-12 leading-relaxed">
-          A fast, transparent website build for teams who already know who they are.
-          We build websites quickly, and without any unpleasant surprises.
-        </p>
-
-        {/* Value propositions */}
-        <div className="flex flex-wrap gap-6 mb-12 text-muted-foreground">
-          <div className="flex items-center gap-2">
-            <div className="w-1.5 h-1.5 bg-accent rounded-full" />
-            <span>No vague timelines</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-1.5 h-1.5 bg-accent rounded-full" />
-            <span>No mystery pricing</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-1.5 h-1.5 bg-accent rounded-full" />
-            <span>No bloated "discovery" phases</span>
-          </div>
-        </div>
-
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row gap-4">
-          <Button
-            onClick={() => {
-              const element = document.getElementById("contact")
-              element?.scrollIntoView({ behavior: "smooth" })
-            }}
-            className="bg-accent text-accent-foreground hover:bg-accent/90 rounded-full px-8 py-6 text-base font-semibold inline-flex items-center gap-2 group"
-          >
-            Book a kickoff call
-            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-          </Button>
-          <Button
-            variant="outline"
-            className="border-border hover:bg-secondary bg-transparent rounded-full px-8 py-6 text-base font-semibold inline-flex items-center gap-2"
-            onClick={() => {
-              const element = document.getElementById("pricing")
-              element?.scrollIntoView({ behavior: "smooth" })
-            }}
-          >
-            <Play size={18} className="text-accent" />
-            See pricing
-          </Button>
-        </div>
-
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-12 border-t border-border">
-          <div>
-            <div className="text-4xl sm:text-5xl font-bold text-foreground mb-2">50+</div>
-            <div className="text-sm text-muted-foreground">Projects Delivered</div>
-          </div>
-          <div>
-            <div className="text-4xl sm:text-5xl font-bold text-foreground mb-2">200%</div>
-            <div className="text-sm text-muted-foreground">Avg. Revenue Growth</div>
-          </div>
-          <div>
-            <div className="text-4xl sm:text-5xl font-bold text-foreground mb-2">98%</div>
-            <div className="text-sm text-muted-foreground">Client Satisfaction</div>
-          </div>
-          <div>
-            <div className="text-4xl sm:text-5xl font-bold text-foreground mb-2">24/7</div>
-            <div className="text-sm text-muted-foreground">Support Available</div>
-          </div>
-        </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
-        <div className="w-6 h-10 border-2 border-muted rounded-full flex justify-center pt-2">
-          <div className="w-1.5 h-3 bg-accent rounded-full animate-bounce" />
-        </div>
+        {/* Right Column - Interactive Demo */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="relative w-full min-h-[400px] lg:min-h-[460px]"
+        >
+          <InteractiveDemo />
+        </motion.div>
       </div>
     </section>
   )

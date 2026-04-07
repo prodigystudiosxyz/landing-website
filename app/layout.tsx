@@ -1,17 +1,25 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import { Outfit, Plus_Jakarta_Sans } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
-const _geist = Geist({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans-main",
+  display: "swap",
+})
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
-  title: "Prodigy Studios | Software Development, Design & AI Solutions",
+  title: "Prodigy Studios | We Build Software That Works",
   description:
-    "Transform your business with our comprehensive software development, design, machine learning, and data science services.",
-  generator: "v0.app",
+    "A software agency for teams who need websites, apps, and AI systems — built fast and built right.",
   icons: {
     icon: [
       {
@@ -31,6 +39,8 @@ export const metadata: Metadata = {
   },
 }
 
+import { SmoothScroll } from "@/components/smooth-scroll"
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -38,8 +48,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-sans antialiased`}>
-        {children}
+      <body
+        className={`${plusJakartaSans.variable} ${outfit.variable} font-sans antialiased`}
+      >
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
         <Analytics />
       </body>
     </html>

@@ -1,106 +1,98 @@
 "use client"
 
-import { Calendar, CheckCircle2, Clock, Rocket, Sparkles } from "lucide-react"
+import { motion } from "framer-motion"
+import { AnimateIn } from "@/components/animate-in"
 
-const steps = [
+const processSteps = [
     {
-        days: "Day 1–2",
-        title: "Kickoff & alignment",
-        description: "You send us your brand assets, content, and goals. We confirm scope, timeline, and pricing upfront.",
-        icon: Clock,
+        number: "01",
+        title: "Strategic Discovery",
+        description: "We listen to what you need. No assumptions, no filler meetings.",
     },
     {
-        days: "Day 3–6",
-        title: "First build",
-        description: "We design and build your site structure, layout, and core pages.",
-        icon: Sparkles,
+        number: "02",
+        title: "Precision Engineering",
+        description: "We design and develop your product — fast, focused, no wasted effort.",
     },
     {
-        days: "Day 7–10",
-        title: "Refinement",
-        description: "We polish design and performance. Three structured feedback rounds baked in.",
-        icon: CheckCircle2,
+        number: "03",
+        title: "Iterative Polish",
+        description: "We refine based on your feedback until the product feels exactly right.",
     },
     {
-        days: "Day 11–14",
-        title: "Final approval & launch",
-        description: "Hosting setup, QA, and go-live. Your site is ready for the world.",
-        icon: Rocket,
+        number: "04",
+        title: "Sustainable Growth",
+        description: "We set you up for scale. You own everything, and we remain available.",
     },
 ]
 
-const feedbackRounds = [
-    "Initial layout and direction",
-    "Design and content refinement",
-    "Final polish before launch",
-]
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.15,
+        },
+    },
+}
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.8,
+            ease: "easeOut" as any,
+        },
+    },
+}
 
 export function Process() {
     return (
-        <section id="process" className="py-24 bg-background">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                {/* Section Header */}
-                <div className="mb-16">
-                    <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6">
-                        How this works <span className="text-muted-foreground/60">(we don’t hide our process)</span>
-                    </h2>
-                    <p className="text-xl text-muted-foreground max-w-2xl">
-                        Launch-ready websites in 10–14 days. No mystery, just execution.
-                    </p>
+        <section id="process" className="py-24 lg:py-32 relative overflow-hidden text-foreground">
+            {/* Background elements */}
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
+
+            <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+                {/* Section header */}
+                <div className="mb-16 lg:mb-24 text-center max-w-4xl mx-auto">
+                    <AnimateIn direction="down">
+                        <h2 className="font-[var(--font-heading)] text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05]">
+                            Our methodology. <br />
+                            <span className="gradient-text">Built for precision.</span>
+                        </h2>
+                    </AnimateIn>
                 </div>
 
-                {/* Timeline Grid */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-                    {steps.map((step, index) => {
-                        const Icon = step.icon
-                        return (
-                            <div key={index} className="relative group">
-                                <div className="bg-secondary/50 border border-border rounded-3xl p-8 h-full hover-lift">
-                                    <div className="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                        <Icon className="text-accent" size={24} />
-                                    </div>
-                                    <div className="text-sm font-bold text-accent mb-2">{step.days}</div>
-                                    <h3 className="text-xl font-bold mb-4">{step.title}</h3>
+                {/* Steps */}
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={containerVariants}
+                    className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
+                >
+                    {processSteps.map((step, index) => (
+                        <motion.div key={index} variants={itemVariants}>
+                            <div className="group relative h-full bg-card/40 backdrop-blur-sm border border-border/50 rounded-3xl p-8 transition-all duration-500 hover:bg-card/60 hover:shadow-xl hover:shadow-accent/5 hover:border-accent/30 overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-br from-accent/0 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
+                                <div className="relative z-10">
+                                    <span className="font-[var(--font-heading)] text-6xl font-bold block mb-8 text-foreground/10 group-hover:text-accent/20 transition-colors duration-500">
+                                        {step.number}
+                                    </span>
+                                    <h3 className="font-[var(--font-heading)] text-2xl font-bold mb-4 text-foreground group-hover:text-accent transition-colors duration-300">
+                                        {step.title}
+                                    </h3>
                                     <p className="text-muted-foreground leading-relaxed">
                                         {step.description}
                                     </p>
                                 </div>
-                                {index < steps.length - 1 && (
-                                    <div className="hidden lg:block absolute top-1/2 -right-4 translate-x-1/2 -translate-y-1/2 z-10">
-                                        <div className="w-8 h-px bg-border" />
-                                    </div>
-                                )}
                             </div>
-                        )
-                    })}
-                </div>
-
-                {/* Feedback Rounds */}
-                <div className="bg-accent text-accent-foreground rounded-3xl p-8 lg:p-12 relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-
-                    <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-                        <div>
-                            <h3 className="text-3xl sm:text-4xl font-black mb-6">
-                                Three chances to get it right
-                            </h3>
-                            <p className="text-accent-foreground/80 text-lg mb-8">
-                                You’ll have 3 structured feedback rounds baked into the process.
-                                Enough flexibility to dial it in, enough structure to keep things moving.
-                            </p>
-                        </div>
-                        <div className="space-y-4">
-                            {feedbackRounds.map((round, index) => (
-                                <div key={index} className="flex items-center gap-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4">
-                                    <div className="w-8 h-8 bg-white text-accent rounded-full flex items-center justify-center font-bold">
-                                        {index + 1}
-                                    </div>
-                                    <span className="font-medium">{round}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
+                        </motion.div>
+                    ))}
+                </motion.div>
             </div>
         </section>
     )

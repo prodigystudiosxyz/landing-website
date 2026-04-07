@@ -1,13 +1,9 @@
 import { Navigation } from "@/components/navigation"
 import { Hero } from "@/components/hero"
-import { Testimonials } from "@/components/testimonials"
+import { WhyCustom } from "@/components/why-custom"
+import { Services } from "@/components/services"
 import { Process } from "@/components/process"
-import { Pricing } from "@/components/pricing"
-import { Comparison } from "@/components/comparison"
-import { Audience } from "@/components/audience"
-import { Projects } from "@/components/projects"
-import { Team } from "@/components/team"
-import { FAQ } from "@/components/faq"
+import { WhyUs } from "@/components/why-us"
 import { CTA } from "@/components/cta"
 import { Footer } from "@/components/footer"
 
@@ -16,14 +12,10 @@ export default function Home() {
     <main className="bg-background text-foreground">
       <Navigation />
       <Hero />
-      <Testimonials />
+      <WhyCustom />
+      <Services />
       <Process />
-      <Pricing />
-      <Comparison />
-      <Audience />
-      <Projects />
-      <Team />
-      <FAQ />
+      <WhyUs />
       <CTA />
       <Footer />
     </main>
